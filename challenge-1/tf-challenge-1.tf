@@ -3,21 +3,15 @@ provider "aws" {
 }
 terraform {
   required_providers {
-    aws = {
-      source = "aws"
-      version = "~> 2.54"
-    }
     digitalocean = {
       source = "digitalocean/digitalocean"
     }
   }
 }
 
-provider "digitalocean" {
-}
-
-
-
 resource "aws_eip" "kplabs_app_ip" {
-  vpc = true
+  domain = "vpc"
+  tags = {
+    "Managed_By" = "Terraform"
+  }
 }
