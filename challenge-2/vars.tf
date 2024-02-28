@@ -1,3 +1,6 @@
+variable "splunk" {
+}
+
 variable "https" {
 }
 

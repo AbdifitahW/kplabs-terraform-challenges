@@ -1,19 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-variable "splunk" {
-  default = "8088"
-}
 resource "aws_security_group" "payment_app" {
   name        = "payment_app"
   description = "Application Security Group"
@@ -56,11 +40,4 @@ resource "aws_security_group" "payment_app" {
   }
 
   tags = var.terraform_tag
-}
-
-
-
-resource "aws_eip" "example" {
-  tags = var.terraform_tag
-  domain = "vpc"
 }
